@@ -1,13 +1,11 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../../../config";
 
-
 export interface v1Chat extends Model {
   chat_id: number;
   chat_message: string;
-  chat_fro_id: number;
-  chat_to_id: number;
-  chat_created_at: string
+  sender_id: number;
+  receiver_id: number;
 }
 
 // admin schema
@@ -22,13 +20,11 @@ const Chat = sequelize.define<v1Chat>(
       allowNull: false,
     },
     chat_message: { type: DataTypes.STRING },
-    chat_fro_id: {type: DataTypes.INTEGER},
-    chat_to_id: {type: DataTypes.INTEGER},
-    chat_created_at: { type: DataTypes.DATE, defaultValue: DataTypes.NOW },
+    sender_id: { type: DataTypes.INTEGER },
+    receiver_id: { type: DataTypes.INTEGER },
   },
   {
-    tableName: "chats",
-    timestamps: false,
+    tableName: "chat",
   }
 );
 

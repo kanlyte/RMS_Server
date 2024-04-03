@@ -1,9 +1,9 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../../../config";
 
-
 export interface v1Department extends Model {
   department_id: number;
+  faculty_id: number;
   department_name: string;
 }
 
@@ -18,11 +18,11 @@ const Department = sequelize.define<v1Department>(
       primaryKey: true,
       allowNull: false,
     },
+    faculty_id: { type: DataTypes.INTEGER },
     department_name: { type: DataTypes.STRING },
   },
   {
-    tableName: "departments",
-    timestamps: false,
+    tableName: "department",
   }
 );
 

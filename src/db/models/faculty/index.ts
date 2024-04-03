@@ -1,7 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../../../config";
 
-
 export interface v1Faculty extends Model {
   faculty_id: number;
   faculty_name: string;
@@ -19,11 +18,9 @@ const Faculty = sequelize.define<v1Faculty>(
       allowNull: false,
     },
     faculty_name: { type: DataTypes.STRING },
-    
   },
   {
-    tableName: "faculties",
-    timestamps: false,
+    tableName: "faculty",
   }
 );
 

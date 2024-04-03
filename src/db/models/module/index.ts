@@ -1,14 +1,11 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../../../config";
 
-
 export interface v1Module extends Model {
   module_id: number;
-  created_by: number;
+  admin_id: number;
   module_name: string;
-  module_data: string;
-  other_submissons: string;
-
+  module_message: string;
 }
 
 // admin schema
@@ -22,15 +19,12 @@ const Module = sequelize.define<v1Module>(
       primaryKey: true,
       allowNull: false,
     },
-    created_by: {type: DataTypes.INTEGER},
-    module_name:{type: DataTypes.STRING},
-    module_data:{type: DataTypes.STRING},
-    other_submissons: {type: DataTypes.STRING},
-    
+    admin_id: { type: DataTypes.INTEGER },
+    module_name: { type: DataTypes.STRING },
+    module_message: { type: DataTypes.STRING },
   },
   {
-    tableName: "modules",
-    timestamps: false,
+    tableName: "module",
   }
 );
 

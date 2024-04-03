@@ -2,13 +2,12 @@ import { Model, DataTypes } from "sequelize";
 import sequelize from "../../../config";
 
 enum YearOfStudy {
-    ONE = '1',
-    TWO = '2',
-    THREE = '3',
-    FOUR = '4',
-    FIVE = '5'
-  }
-
+  ONE = "one",
+  TWO = "two",
+  THREE = "three",
+  FOUR = "four",
+  FIVE = "five",
+}
 
 export interface v1Year extends Model {
   year_id: number;
@@ -26,13 +25,13 @@ const Year = sequelize.define<v1Year>(
       primaryKey: true,
       allowNull: false,
     },
-    year_name: { type: DataTypes.ENUM(...Object.values(YearOfStudy)),
-        allowNull: false },
-    
+    year_name: {
+      type: DataTypes.ENUM(...Object.values(YearOfStudy)),
+      allowNull: false,
+    },
   },
   {
-    tableName: "years",
-    timestamps: false,
+    tableName: "year",
   }
 );
 

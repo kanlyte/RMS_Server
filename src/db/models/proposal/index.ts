@@ -1,30 +1,28 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../../../config";
 
-
 export interface v1Proposal extends Model {
   proposal_id: number;
-  proposal_general: string
-
+  user_id: number;
+  proposal_general: string;
 }
 
-// admin schema
+// proposal schema
 
 const Proposal = sequelize.define<v1Proposal>(
   "Proposal",
   {
-    chat_id: {
+    proposal_id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
-    proposal_general: {type: DataTypes.STRING}
-    
+    user_id: { type: DataTypes.STRING },
+    proposal_general: { type: DataTypes.STRING },
   },
   {
-    tableName: "proposals",
-    timestamps: false,
+    tableName: "proposal",
   }
 );
 

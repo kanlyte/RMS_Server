@@ -1,26 +1,13 @@
 import { Sequelize } from "sequelize";
-import models from "../db/models";
 
 const sequelize = new Sequelize({
   dialect: "mysql",
   dialectModule: require("mysql2"),
-  host: "localhost",
-  database: "v1research",
-  username: "root",
-  password: "",
-
-  pool:{
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  },
-  logging: false,
-}
-
-);
-
-
+  host: process.env.HOST,
+  database: process.env.DATABASE_NAME,
+  username: process.env.DATABASE_USER,
+  password: process.env.USER_PASSWORD,
+});
 
 export interface ResultObj {
   result?: any;
